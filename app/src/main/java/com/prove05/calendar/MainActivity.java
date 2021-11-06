@@ -36,6 +36,6 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void dayAction(View view) {
-        startActivity(new Intent(this, DayViewActivity.class));
+        startActivity(new Intent(this, EventViewActivity.class));
     }
 }
