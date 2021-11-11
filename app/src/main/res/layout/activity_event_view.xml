@@ -21,10 +21,11 @@
 
     <CalendarView
         android:id="@+id/calendar"
-        android:layout_marginTop="80dp"
-        android:layout_marginLeft="19dp"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="80dp" />
 
     <Button
         android:id="@+id/dayViewButton"
@@ -42,15 +43,15 @@
         android:textStyle="bold" />
 
     <Button
+        android:id="@+id/eventButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/eventButton"
-        android:onClick="createEvent"
-        android:textSize="20sp"
-        android:textStyle="bold"
+        android:layout_gravity="center"
         android:background="@null"
+        android:onClick="createEvent"
         android:textColor="@color/black"
-        android:layout_gravity="center" />
+        android:textSize="20sp"
+        android:textStyle="bold" />
 
 
 </RelativeLayout>
