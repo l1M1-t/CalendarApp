@@ -9,6 +9,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.CalendarView;
 import android.widget.TextView;
+import android.view.View;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -34,7 +35,6 @@ public class MainActivity extends AppCompatActivity {
             }
         });
     }
-
     public void dayAction(View view) {
         startActivity(new Intent(this, EventViewActivity.class));
     }
