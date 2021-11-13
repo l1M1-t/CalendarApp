@@ -1,3 +1,5 @@
+package com.prove05.calendar;
+
 public class EventHolder {
     private String title;
     private int date;

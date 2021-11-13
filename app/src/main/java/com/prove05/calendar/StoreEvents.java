@@ -1,3 +1,7 @@
+package com.prove05.calendar;
+
+import com.prove05.calendar.EventHolder;
+
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
