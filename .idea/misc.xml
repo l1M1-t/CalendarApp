@@ -3,9 +3,13 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
-        <entry key="..\:/Users/TJ/Documents/School/CS 246/Calendar App/app/src/main/res/layout/activity_create_event.xml" value="0.248046875" />
         <entry key="..\:/Users/TJ/Documents/School/CS 246/Calendar App/app/src/main/res/layout/activity_event_view.xml" value="0.5541666666666667" />
         <entry key="..\:/Users/TJ/Documents/School/CS 246/Calendar App/app/src/main/res/layout/activity_main.xml" value="0.5541666666666667" />
+        <entry key="..\:/Users/lim08/AndroidStudioProjects/calendar/app/src/main/res/layout/activity_create_event.xml" value="0.25" />
+        <entry key="..\:/Users/lim08/AndroidStudioProjects/calendar/app/src/main/res/layout/activity_create_event2.xml" value="0.2359375" />
+        <entry key="..\:/Users/lim08/AndroidStudioProjects/calendar/app/src/main/res/layout/activity_event_create.xml" value="0.25" />
+        <entry key="..\:/Users/lim08/AndroidStudioProjects/calendar/app/src/main/res/layout/activity_event_view.xml" value="0.25" />
+        <entry key="..\:/Users/lim08/AndroidStudioProjects/calendar/app/src/main/res/layout/activity_main.xml" value="0.20199275362318841" />
       </map>
     </option>
   </component>
