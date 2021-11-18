@@ -7,16 +7,23 @@ import android.widget.Button;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-public class EventViewActivity extends AppCompatActivity{
+public class EventListActivity extends AppCompatActivity{
 
     Button monthView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_event_view);
+        setContentView(R.layout.activity_event_list);
 
         monthView = (Button)findViewById(R.id.monthViewButton);
+
+        monthView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                monthView(v);
+            }
+        });
     }
 
     public void monthView(View view) {

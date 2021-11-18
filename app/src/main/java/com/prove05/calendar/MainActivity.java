@@ -54,7 +54,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void eventListAction(View view) {
-        Intent intent = new Intent(MainActivity.this, EventViewActivity.class);
+        Intent intent = new Intent(MainActivity.this, EventListActivity.class);
 
         startActivity(intent);
     }
