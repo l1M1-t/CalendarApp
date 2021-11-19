@@ -33,6 +33,16 @@ public class EventListActivity extends AppCompatActivity{
         list.add("Pear");
         list.add("Grapes");
         list.add("Watermelon");
+        list.add("Pineapple");
+        list.add("Strawberries");
+        list.add("Blueberries");
+        list.add("Melon");
+        list.add("Cantaloupe");
+        list.add("Lemon");
+        list.add("Lime");
+        list.add("Tomato");
+        list.add("Banana");
+        list.add("Mango");
 
         listOfEvents = new ArrayAdapter(EventListActivity.this, android.R.layout.simple_list_item_1, list);
         listView.setAdapter(listOfEvents);

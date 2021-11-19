@@ -30,4 +30,15 @@ public class CreateEventActivity extends AppCompatActivity {
         
     }
 
+    public String saveNotification(EditText startDate, EditText endDate, EditText alertDate) {
+        return null;
+    }
+
+    public void clear() {
+        startDate.setText("");
+        endDate.setText("");
+        alertDate.setText("");
+        startDate.clearComposingText();
+    }
+
 }

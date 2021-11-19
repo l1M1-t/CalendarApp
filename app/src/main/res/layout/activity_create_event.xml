@@ -7,11 +7,13 @@
 
     <TextView
         android:id="@+id/eventTitle"
+        android:textStyle="bold"
+        android:textSize="20sp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginTop="56dp"
-        android:text="Title:"
+        android:text="Title"
         app:layout_constraintBottom_toBottomOf="@+id/editTextTextPersonName"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -21,7 +23,10 @@
         android:layout_width="300dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="56dp"
-        android:layout_marginEnd="20dp"
+        android:layout_marginEnd="16dp"
+        android:background="@drawable/custom_input"
+        android:paddingLeft="5dp"
+        android:paddingRight="5dp"
         android:ems="10"
         android:inputType="textPersonName"
         app:layout_constraintEnd_toEndOf="parent"
@@ -31,18 +36,24 @@
         android:id="@+id/eventStart"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Start:"
+        android:layout_marginStart="16dp"
+        android:text="Start"
+        android:textSize="20sp"
+        android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="@+id/startDateText"
-        app:layout_constraintStart_toStartOf="@+id/eventTitle" />
+        app:layout_constraintStart_toStartOf="parent" />
 
     <EditText
         android:id="@+id/startDateText"
         android:layout_width="300dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="36dp"
-        android:layout_marginEnd="20dp"
+        android:layout_marginTop="60dp"
+        android:layout_marginEnd="16dp"
+        android:background="@drawable/custom_input"
         android:ems="10"
         android:inputType="date"
+        android:paddingLeft="5dp"
+        android:paddingRight="5dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName" />
 
@@ -50,16 +61,22 @@
         android:id="@+id/eventEnd"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="End:"
+        android:layout_marginStart="16dp"
+        android:textStyle="bold"
+        android:textSize="20sp"
+        android:text="End"
         app:layout_constraintBottom_toBottomOf="@+id/endDateText"
-        app:layout_constraintStart_toStartOf="@+id/eventStart" />
+        app:layout_constraintStart_toStartOf="parent" />
 
     <EditText
         android:id="@+id/endDateText"
         android:layout_width="300dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="252dp"
-        android:layout_marginEnd="20dp"
+        android:layout_marginTop="224dp"
+        android:layout_marginEnd="16dp"
+        android:background="@drawable/custom_input"
+        android:paddingLeft="5dp"
+        android:paddingRight="5dp"
         android:ems="10"
         android:inputType="date"
         app:layout_constraintEnd_toEndOf="parent"
@@ -69,16 +86,22 @@
         android:id="@+id/setNotification"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Notification"
+        android:layout_marginStart="16dp"
+        android:textStyle="bold"
+        android:textSize="20sp"
+        android:text="Alert"
         app:layout_constraintBottom_toBottomOf="@+id/alertDateText"
-        tools:layout_editor_absoluteX="16dp" />
+        app:layout_constraintStart_toStartOf="parent" />
 
     <EditText
         android:id="@+id/alertDateText"
         android:layout_width="300dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="377dp"
-        android:layout_marginEnd="20dp"
+        android:layout_marginTop="304dp"
+        android:layout_marginEnd="16dp"
+        android:background="@drawable/custom_input"
+        android:paddingLeft="5dp"
+        android:paddingRight="5dp"
         android:ems="10"
         android:inputType="time"
         app:layout_constraintEnd_toEndOf="parent"
@@ -90,7 +113,9 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="58dp"
         android:layout_marginBottom="16dp"
+        android:backgroundTint="@color/white"
         android:text="Clear"
+        android:textColor="@color/black"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
@@ -100,7 +125,9 @@
         android:layout_height="wrap_content"
         android:layout_marginEnd="58dp"
         android:layout_marginBottom="16dp"
+        android:backgroundTint="@color/white"
         android:text="Save"
+        android:textColor="@color/black"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
 
