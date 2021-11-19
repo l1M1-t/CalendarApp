@@ -3,13 +3,21 @@ package com.prove05.calendar;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.ListView;
 
 import androidx.appcompat.app.AppCompatActivity;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class EventListActivity extends AppCompatActivity{
 
     Button monthView;
+    ListView listView;
+    List list = new ArrayList();
+    ArrayAdapter listOfEvents;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -17,6 +25,17 @@ public class EventListActivity extends AppCompatActivity{
         setContentView(R.layout.activity_event_list);
 
         monthView = (Button)findViewById(R.id.monthViewButton);
+        listView = (ListView)findViewById(R.id.list);
+
+        // Testing 1
+        list.add("Orange");
+        list.add("Apple");
+        list.add("Pear");
+        list.add("Grapes");
+        list.add("Watermelon");
+
+        listOfEvents = new ArrayAdapter(EventListActivity.this, android.R.layout.simple_list_item_1, list);
+        listView.setAdapter(listOfEvents);
 
         monthView.setOnClickListener(new View.OnClickListener() {
             @Override

@@ -5,6 +5,85 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
+    <TextView
+        android:id="@+id/eventTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="56dp"
+        android:text="Title:"
+        app:layout_constraintBottom_toBottomOf="@+id/editTextTextPersonName"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/editTextTextPersonName"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="56dp"
+        android:layout_marginEnd="20dp"
+        android:ems="10"
+        android:inputType="textPersonName"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/eventStart"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Start:"
+        app:layout_constraintBottom_toBottomOf="@+id/startDateText"
+        app:layout_constraintStart_toStartOf="@+id/eventTitle" />
+
+    <EditText
+        android:id="@+id/startDateText"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="36dp"
+        android:layout_marginEnd="20dp"
+        android:ems="10"
+        android:inputType="date"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName" />
+
+    <TextView
+        android:id="@+id/eventEnd"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="End:"
+        app:layout_constraintBottom_toBottomOf="@+id/endDateText"
+        app:layout_constraintStart_toStartOf="@+id/eventStart" />
+
+    <EditText
+        android:id="@+id/endDateText"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="252dp"
+        android:layout_marginEnd="20dp"
+        android:ems="10"
+        android:inputType="date"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/setNotification"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Notification"
+        app:layout_constraintBottom_toBottomOf="@+id/alertDateText"
+        tools:layout_editor_absoluteX="16dp" />
+
+    <EditText
+        android:id="@+id/alertDateText"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="377dp"
+        android:layout_marginEnd="20dp"
+        android:ems="10"
+        android:inputType="time"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
     <Button
         android:id="@+id/buttonClear"
         android:layout_width="wrap_content"
@@ -25,103 +104,4 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
 
-    <EditText
-        android:id="@+id/editTextDate"
-        android:layout_width="300dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="32dp"
-        android:layout_marginEnd="16dp"
-        android:ems="10"
-        android:inputType="date"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName" />
-
-    <EditText
-        android:id="@+id/editTextDate2"
-        android:layout_width="300dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="32dp"
-        android:layout_marginEnd="16dp"
-        android:ems="10"
-        android:inputType="date"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextTime2" />
-
-    <EditText
-        android:id="@+id/editTextTime2"
-        android:layout_width="300dp"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="16dp"
-        android:ems="10"
-        android:inputType="time"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextDate" />
-
-    <EditText
-        android:id="@+id/editTextTime3"
-        android:layout_width="300dp"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="16dp"
-        android:ems="10"
-        android:inputType="time"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextDate2" />
-
-    <TextView
-        android:id="@+id/eventStart"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Start:"
-        app:layout_constraintBottom_toBottomOf="@+id/editTextDate"
-        app:layout_constraintStart_toStartOf="@+id/eventTitle" />
-
-    <TextView
-        android:id="@+id/eventEnd"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="End:"
-        app:layout_constraintBottom_toBottomOf="@+id/editTextDate2"
-        app:layout_constraintStart_toStartOf="@+id/eventStart" />
-
-    <TextView
-        android:id="@+id/eventTitle"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="56dp"
-        android:text="Title:"
-        app:layout_constraintBottom_toBottomOf="@+id/editTextTextPersonName"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <EditText
-        android:id="@+id/editTextTextPersonName"
-        android:layout_width="300dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="56dp"
-        android:layout_marginEnd="16dp"
-        android:ems="10"
-        android:inputType="textPersonName"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
-        android:id="@+id/setNotification"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Notification"
-        app:layout_constraintBottom_toBottomOf="@+id/editTextTime"
-        app:layout_constraintStart_toStartOf="@+id/eventEnd"
-        app:layout_constraintTop_toTopOf="@+id/editTextTime" />
-
-    <EditText
-        android:id="@+id/editTextTime"
-        android:layout_width="300dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="32dp"
-        android:layout_marginEnd="16dp"
-        android:ems="10"
-        android:inputType="time"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextTime3" />
 </androidx.constraintlayout.widget.ConstraintLayout>
