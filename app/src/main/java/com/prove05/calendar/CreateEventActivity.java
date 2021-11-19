@@ -12,6 +12,7 @@ public class CreateEventActivity extends AppCompatActivity {
 
     Button clear;
     Button save;
+    EditText title;
     EditText startDate;
     EditText endDate;
     EditText alertDate;
@@ -23,22 +24,42 @@ public class CreateEventActivity extends AppCompatActivity {
 
         clear = (Button)findViewById(R.id.buttonClear);
         save = (Button)findViewById(R.id.buttonSave);
+        title = (EditText)findViewById(R.id.title);
         startDate = (EditText)findViewById(R.id.startDateText);
         endDate = (EditText)findViewById(R.id.endDateText);
         alertDate = (EditText)findViewById(R.id.alertDateText);
 
-        
+        // clear all of user's input
+        clear.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                clear();
+            }
+        });
+
+        // save the notification
+        save.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                saveNotification(title, startDate, endDate, alertDate);
+            }
+        });
+
+        //we need to save the event data to the arrayList
+        //we need to store the event data to the storage device
     }
 
-    public String saveNotification(EditText startDate, EditText endDate, EditText alertDate) {
+    public String saveNotification(EditText title, EditText startDate, EditText endDate, EditText alertDate) {
         return null;
     }
 
     public void clear() {
-        startDate.setText("");
-        endDate.setText("");
-        alertDate.setText("");
-        startDate.clearComposingText();
+        //for unknown reason, the system crashes when the input for title is erased.
+        //title.getText().clear();
+
+        startDate.getText().clear();
+        endDate.getText().clear();
+        alertDate.getText().clear();
     }
 
 }
