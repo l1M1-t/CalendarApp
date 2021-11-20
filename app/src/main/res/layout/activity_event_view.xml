@@ -4,12 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:paddingTop="16dp"
-    android:paddingLeft="16dp"
-    android:paddingRight="16dp"
-    android:paddingBottom="16dp"
-    tools:context=".MainActivity">
+    tools:context=".EventViewActivity">
 
     <TextView
         android:id="@+id/textView"
@@ -24,23 +19,13 @@
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"/>
-
     <CalendarView
         android:id="@+id/calendar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
-        android:layout_gravity="center"
-        android:layout_marginLeft="19dp"
-        android:layout_marginTop="80dp"
-        android:maxDate="12/31/2080"
-        android:minDate="01/01/1910"
-        android:showWeekNumber="false"
-        android:unfocusedMonthDateColor="@color/black" />
-
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="80dp" />
 
     <Button
         android:id="@+id/dayViewButton"
@@ -49,24 +34,21 @@
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
         android:layout_gravity="center"
-        android:layout_marginBottom="3dp"
-        android:backgroundTint="@color/white"
-        android:onClick="dayAction"
-        android:text="Day"
+        android:layout_marginBottom="23dp"
+        android:background="@null"
+        android:onClick="monthAction"
+        android:text="Month"
         android:textColor="@color/black"
         android:textSize="20sp"
         android:textStyle="bold" />
 
     <Button
         android:id="@+id/eventButton"
-        android:layout_width="54dp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentBottom="true"
-        android:layout_marginEnd="26dp"
-        android:layout_marginBottom="3dp"
-        android:backgroundTint="@color/white"
-        android:text="+"
+        android:layout_gravity="center"
+        android:background="@null"
+        android:onClick="createEvent"
         android:textColor="@color/black"
         android:textSize="20sp"
         android:textStyle="bold" />
