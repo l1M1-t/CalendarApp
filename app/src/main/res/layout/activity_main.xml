@@ -18,15 +18,11 @@
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="37dp"
-        android:text="Hello World!"
+        android:text=""
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
-
-    <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"/>
 
     <CalendarView
         android:id="@+id/calendar"
@@ -43,7 +39,7 @@
 
 
     <Button
-        android:id="@+id/dayViewButton"
+        android:id="@+id/eventListViewButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
@@ -51,14 +47,14 @@
         android:layout_gravity="center"
         android:layout_marginBottom="3dp"
         android:backgroundTint="@color/white"
-        android:onClick="dayAction"
-        android:text="Day"
+        android:onClick="eventListAction"
+        android:text="List"
         android:textColor="@color/black"
         android:textSize="20sp"
         android:textStyle="bold" />
 
     <Button
-        android:id="@+id/eventButton"
+        android:id="@+id/createEventButton"
         android:layout_width="54dp"
         android:layout_height="wrap_content"
         android:layout_alignParentEnd="true"
