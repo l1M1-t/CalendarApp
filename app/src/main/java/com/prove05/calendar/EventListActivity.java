@@ -16,7 +16,8 @@ public class EventListActivity extends AppCompatActivity{
 
     Button monthView;
     ListView listView;
-    List list = new ArrayList();
+    ArrayList list = new ArrayList();
+    ArrayList bufferList = new ArrayList();
     ArrayAdapter listOfEvents;
 
     @Override
@@ -24,25 +25,34 @@ public class EventListActivity extends AppCompatActivity{
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_event_list);
 
+        Intent intent = getIntent();
+        bufferList = intent.getParcelableExtra("EVENTS");
+
         monthView = (Button)findViewById(R.id.monthViewButton);
         listView = (ListView)findViewById(R.id.list);
 
-        // Testing 1
-        list.add("Orange");
-        list.add("Apple");
-        list.add("Pear");
-        list.add("Grapes");
-        list.add("Watermelon");
-        list.add("Pineapple");
-        list.add("Strawberries");
-        list.add("Blueberries");
-        list.add("Melon");
-        list.add("Cantaloupe");
-        list.add("Lemon");
-        list.add("Lime");
-        list.add("Tomato");
-        list.add("Banana");
-        list.add("Mango");
+        //display events to the listView
+
+        for (int i = 0; i < list.size(); i++) {
+            list.add(bufferList.get(i));
+        }
+
+//        // Testing 1
+//        list.add("Orange");
+//        list.add("Apple");
+//        list.add("Pear");
+//        list.add("Grapes");
+//        list.add("Watermelon");
+//        list.add("Pineapple");
+//        list.add("Strawberries");
+//        list.add("Blueberries");
+//        list.add("Melon");
+//        list.add("Cantaloupe");
+//        list.add("Lemon");
+//        list.add("Lime");
+//        list.add("Tomato");
+//        list.add("Banana");
+//        list.add("Mango");
 
         listOfEvents = new ArrayAdapter(EventListActivity.this, android.R.layout.simple_list_item_1, list);
         listView.setAdapter(listOfEvents);
@@ -56,6 +66,10 @@ public class EventListActivity extends AppCompatActivity{
     }
 
     public void monthView(View view) {
-        startActivity(new Intent(this, MainActivity.class));
+        Intent intent = new Intent(this, MainActivity.class);
+
+        intent.putExtra("EVENTS", list);
+
+        startActivity(intent);
     }
 }

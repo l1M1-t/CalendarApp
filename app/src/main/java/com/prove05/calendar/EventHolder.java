@@ -1,6 +1,8 @@
 package com.prove05.calendar;
 
-public class EventHolder {
+import java.io.Serializable;
+
+public class EventHolder implements Serializable {
     private String title;
     private int date;
     private int time;
