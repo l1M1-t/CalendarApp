@@ -1,5 +1,7 @@
 package com.prove05.calendar;
 
+import android.content.Context;
+
 import com.prove05.calendar.EventHolder;
 
 import java.io.File;
@@ -11,15 +13,15 @@ import java.util.Scanner;
 
 public class StoreEvents {
 
-    public static ArrayList<EventHolder> readEventsFromFile(String fileName) throws FileNotFoundException {
-        File file = new File(fileName);
+    public static ArrayList<EventHolder> readEventsFromFile(String fileName, Context context) throws FileNotFoundException {
+        File file = new File(context.getFilesDir(),fileName);
         Scanner s = new Scanner(file);
 
         ArrayList<EventHolder> eventHolderList = new ArrayList<EventHolder>();
 
         while(s.hasNextLine()){
             String line = s.nextLine();
-            String[] items = line.split("\\|");
+            String[] items = line.split("|");
 
             String title = items[0];
             int date = Integer.parseInt(items[1]);

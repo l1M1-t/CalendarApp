@@ -2,6 +2,7 @@ package com.prove05.calendar;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -88,7 +89,7 @@ public class CreateEventActivity extends AppCompatActivity {
                 // list of events object is passed back to the main activity
                 Intent resultIntent = new Intent();
                 resultIntent.putExtra("EVENTS", events);
-                setResult(MainActivity.RESULT_OK, resultIntent);
+                setResult(Activity.RESULT_OK, resultIntent);
 
                 finish();
             }
@@ -115,7 +116,7 @@ public class CreateEventActivity extends AppCompatActivity {
     public String extractSlash(String date) {
         String buffer = date;
         String finalDate = null;
-
+/*
         System.out.println("date: " + buffer);
 
         buffer.
@@ -134,7 +135,7 @@ public class CreateEventActivity extends AppCompatActivity {
 //            }
 //        }
 //        finalDate = month + dayOfMonth + year;
-
+ */
         return finalDate;
     };
 }

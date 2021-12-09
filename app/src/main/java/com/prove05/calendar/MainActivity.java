@@ -56,7 +56,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        eventList.setOnClickListener(new View.OnClickListener() {
+        eventListButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 eventListAction(v);
@@ -82,7 +82,7 @@ public class MainActivity extends AppCompatActivity {
         intent.putExtra("DAYOFMONTH", dom);
         intent.putExtra("EVENTS", events);
 
-        startActivityForResult(intent, 1);
+        super.startActivityForResult(intent, 1);
     }
 
     @Override

@@ -3,6 +3,8 @@ package com.prove05.calendar;
 import java.io.Serializable;
 
 public class EventHolder implements Serializable {
+
+
     private String title;
     private int date;
     private int time;
