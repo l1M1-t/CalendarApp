@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -40,7 +41,7 @@ public class CreateEventActivity extends AppCompatActivity {
 
         clear = (Button)findViewById(R.id.buttonClear);
         save = (Button)findViewById(R.id.buttonSave);
-        title = (EditText)findViewById(R.id.title);
+        title = (EditText)findViewById(R.id.EventTitle);
         startDate = (EditText)findViewById(R.id.startDateText);
         endDate = (EditText)findViewById(R.id.endDateText);
         alertDate = (EditText)findViewById(R.id.alertDateText);
@@ -53,6 +54,8 @@ public class CreateEventActivity extends AppCompatActivity {
         clear.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
+                System.out.println("Who?");
                 clear();
             }
         });
@@ -62,8 +65,11 @@ public class CreateEventActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 //date and time holders after casting
-                int date;
-                int time;
+
+
+                int date = 2021;
+                int time = 1900;
+
 
                 // create String holders after slashes are extracted
                 String finalStartDate;
@@ -73,22 +79,24 @@ public class CreateEventActivity extends AppCompatActivity {
                 finalStartDate = extractSlash(startDate.getText().toString());
                 finalEndDate = extractSlash(endDate.getText().toString());
 
-                System.out.println(finalStartDate);
-                System.out.println(finalEndDate);
+                System.out.println("Who?");
+                System.out.println(title.getText().toString());
 
                 // cast the dates into string to construct a new EventHolder object
-                date = Integer.parseInt(finalStartDate);
-                time = Integer.parseInt(finalEndDate);
+                //date = Integer.parseInt(finalStartDate);
+                //time = Integer.parseInt(finalEndDate);
+
 
                 event = new EventHolder(title.getText().toString(), date, time);
 
                 // event added into the arrayList of events
-                events.add(event);
-                saveNotification(title, startDate, endDate, alertDate);
 
+                //saveNotification(title, startDate, endDate, alertDate);
+                System.out.println("Who?");
+                System.out.println("What?");
                 // list of events object is passed back to the main activity
                 Intent resultIntent = new Intent();
-                resultIntent.putExtra("EVENTS", events);
+                resultIntent.putExtra("EVENT", event);
                 setResult(Activity.RESULT_OK, resultIntent);
 
                 finish();
@@ -116,26 +124,7 @@ public class CreateEventActivity extends AppCompatActivity {
     public String extractSlash(String date) {
         String buffer = date;
         String finalDate = null;
-/*
-        System.out.println("date: " + buffer);
 
-        buffer.
-
-        System.out.println("After: date: " + buffer);
-
-//        for (int i = 0; i < buffer.length(); i++) {
-//            if (i < 2 && buffer. != "/") {
-//                month += buffer.substring(i);
-//            }
-//            else if (i >= 3 && i < 5 && buffer.substring(i) != "/") {
-//                dayOfMonth += buffer.substring(i);
-//            }
-//            else if (i >= 6 && i < 8) {
-//                year += buffer.substring(i);
-//            }
-//        }
-//        finalDate = month + dayOfMonth + year;
- */
         return finalDate;
     };
 }

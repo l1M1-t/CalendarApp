@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <TextView
+        <TextView
         android:id="@+id/eventTitle"
         android:textStyle="bold"
         android:textSize="20sp"
@@ -14,12 +14,12 @@
         android:layout_marginStart="16dp"
         android:layout_marginTop="56dp"
         android:text="Title"
-        app:layout_constraintBottom_toBottomOf="@+id/editTextTextPersonName"
+        app:layout_constraintBottom_toBottomOf="@+id/EventTitle"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
-        android:id="@+id/editTextTextPersonName"
+        android:id="@+id/EventTitle"
         android:layout_width="300dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="56dp"
@@ -55,7 +55,7 @@
         android:paddingLeft="5dp"
         android:paddingRight="5dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName" />
+        app:layout_constraintTop_toBottomOf="@+id/EventTitle" />
 
     <TextView
         android:id="@+id/eventEnd"

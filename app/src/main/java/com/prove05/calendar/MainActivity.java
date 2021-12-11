@@ -6,6 +6,7 @@ import android.graphics.Color;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CalendarView;
@@ -30,6 +31,7 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
         setContentView(R.layout.activity_main);
         setTitle("OrganizeMe");
 
@@ -75,7 +77,6 @@ public class MainActivity extends AppCompatActivity {
 
     public void createEventAction(View view) {
         Intent intent = new Intent(MainActivity.this, CreateEventActivity.class);
-
         //pass the date data to the next activity
         intent.putExtra("YEAR", y);
         intent.putExtra("MONTH", m);
@@ -83,7 +84,10 @@ public class MainActivity extends AppCompatActivity {
         intent.putExtra("EVENTS", events);
 
         super.startActivityForResult(intent, 1);
+
     }
+
+
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
@@ -93,9 +97,12 @@ public class MainActivity extends AppCompatActivity {
 
                 System.out.println(resultCode);
 
+
                 if (resultCode == RESULT_OK) {
-                    events = (ArrayList<EventHolder>)data.getSerializableExtra("EVENTS");
-                    Toast.makeText(MainActivity.this, events.get(0).getTitle(), Toast.LENGTH_SHORT).show();
+                    EventHolder ev = (EventHolder)data.getSerializableExtra("EVENT");
+                    events.add(ev);
+
+                    Toast.makeText(MainActivity.this, "Created event: " + events.get(events.size() - 1).getTitle(), Toast.LENGTH_SHORT).show();
                 }
                 if (resultCode == RESULT_CANCELED) {
                     Toast.makeText(MainActivity.this, "Extracting data failed!", Toast.LENGTH_SHORT).show();
