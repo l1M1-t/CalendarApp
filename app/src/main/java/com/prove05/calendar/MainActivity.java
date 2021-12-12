@@ -14,7 +14,14 @@ import android.widget.TextView;
 import android.view.View;
 import android.widget.Toast;
 
+import java.io.BufferedReader;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.InputStreamReader;
 import java.util.ArrayList;
+import java.util.Iterator;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -25,8 +32,7 @@ public class MainActivity extends AppCompatActivity {
     String y;
     String m;
     String dom;
-    StoreEvents storage;
-    ArrayList<EventHolder> events;
+    static ArrayList<EventHolder> events;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,6 +46,9 @@ public class MainActivity extends AppCompatActivity {
         createEventButton = (Button)findViewById(R.id.createEventButton);
         eventListButton = (Button)findViewById(R.id.eventListViewButton);
         events = new ArrayList<EventHolder>();
+
+        readFile();
+
 
         calendar.setOnDateChangeListener(new CalendarView.OnDateChangeListener() {
             @Override
@@ -65,6 +74,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
     }
+
 
     public void eventListAction(View view) {
         Intent intent = new Intent(MainActivity.this, EventListActivity.class);
@@ -97,7 +107,6 @@ public class MainActivity extends AppCompatActivity {
                 if (resultCode == RESULT_OK) {
                     EventHolder ev = (EventHolder)data.getSerializableExtra("EVENT");
                     events.add(ev);
-
                     Toast.makeText(MainActivity.this, "Created event: " + events.get(events.size() - 1).getTitle(), Toast.LENGTH_SHORT).show();
                 }
                 if (resultCode == RESULT_CANCELED) {
@@ -108,4 +117,74 @@ public class MainActivity extends AppCompatActivity {
             Toast.makeText(MainActivity.this, ex.toString(), Toast.LENGTH_SHORT).show();
         }
     }
+
+    public void readFile(){
+        FileInputStream fileInputStream = null;
+        try {
+            fileInputStream = openFileInput("savedData.txt");
+            InputStreamReader inputStreamReader = new InputStreamReader(fileInputStream);
+            BufferedReader bufferedReader = new BufferedReader(inputStreamReader);
+
+
+            String lines;
+            while((lines = bufferedReader.readLine()) != null){
+                String[] items = lines.split("\\|");
+
+                String title = items[0];
+                String  startDate = items[1];
+                String endDate = items[2];
+                String startTime = items[3];
+                String endTime = items[4];
+                EventHolder newEventHolder = new EventHolder(title, startDate, endDate, startTime, endTime );
+                events.add(newEventHolder);
+            }
+
+
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+    }
+
+    public String listToFile(ArrayList<EventHolder> eventHolderList){
+
+        String outputText = new String();
+        for(Iterator it = eventHolderList.iterator(); it.hasNext();){
+            EventHolder currentEventHolder = (EventHolder) it.next();
+            outputText = currentEventHolder.getTitle() + "|" + currentEventHolder.getStartDate() + "|" + currentEventHolder.getEndDate() +  "|" + currentEventHolder.getStartTime() + "|" + currentEventHolder.getEndTime();
+        }
+        return outputText;
+
+    }
+
+    public void saveFile(String input){
+
+
+        listToFile(events);
+        try{
+            FileOutputStream fileOutputStream = openFileOutput("savedData.txt", MODE_PRIVATE);
+            fileOutputStream.write(input.getBytes());
+            fileOutputStream.close();
+
+            Toast.makeText(getApplicationContext(), "Saved!", Toast.LENGTH_SHORT).show();
+
+
+
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        saveFile(listToFile(events));
+
+    }
 }
+
