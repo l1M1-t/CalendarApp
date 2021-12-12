@@ -28,8 +28,8 @@ public class CreateEventActivity extends AppCompatActivity {
     Button save;
     DatePicker startDate;
     DatePicker endDate;
-    TextView startTime;
-    TextView endTime;
+    TimePicker startTime;
+    TimePicker endTime;
     EditText title;
     EventHolder event;
     int t1Hour;
@@ -52,10 +52,10 @@ public class CreateEventActivity extends AppCompatActivity {
         title = (EditText)findViewById(R.id.EventTitle);
         startDate = (DatePicker)findViewById(R.id.datePicker1);
         endDate = (DatePicker)findViewById(R.id.datePicker2);
-        startTime = (TextView)findViewById(R.id.eventStartTime);
-        endTime = (TextView)findViewById(R.id.eventEndTime);
+        startTime = (TimePicker)findViewById(R.id.startTimePicker);
+        endTime = (TimePicker)findViewById(R.id.endTimePicker);
 
-        startTime.setOnClickListener(new View.OnClickListener() {
+/*        startTime.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 TimePickerDialog timepickerDialog = new TimePickerDialog(
@@ -118,7 +118,7 @@ public class CreateEventActivity extends AppCompatActivity {
                 //show dialog
                 timepickerDialog.show();
             }
-        });
+        });*/
 
         // save the notification
         save.setOnClickListener(new View.OnClickListener() {
@@ -131,10 +131,13 @@ public class CreateEventActivity extends AppCompatActivity {
                 Integer temp1 = startDate.getDayOfMonth();
                 Integer temp2 = startDate.getMonth();
                 Integer temp3 = startDate.getYear();
-                Integer finalStartDate = Integer.parseInt(temp1.toString()+ temp2.toString()+ temp3.toString());
-                Integer finalEndDate = 0;
-                Integer finalStartTime = 0;
-                Integer finalEndTime = 0;
+                String finalStartDate = (temp1.toString() + temp2.toString() + temp3.toString());
+                temp1 = endDate.getDayOfMonth();
+                temp2 = endDate.getMonth();
+                temp3 = endDate.getYear();
+                String finalEndDate = (temp1.toString() + temp2.toString() + temp3.toString());
+                String finalStartTime = startTime.toString();
+                String finalEndTime = endTime.toString();
 
                 // separate the dates from the slashes '/'
                 //finalStartDate = extractSlash(startDate.getText().toString());
@@ -146,8 +149,6 @@ public class CreateEventActivity extends AppCompatActivity {
                 // cast the dates into string to construct a new EventHolder object
                 //date = Integer.parseInt(finalStartDate);
                 //time = Integer.parseInt(finalEndDate);
-
-
 
                 event = new EventHolder(title.getText().toString(), finalStartDate, finalEndDate, finalStartTime, finalEndTime);
 
