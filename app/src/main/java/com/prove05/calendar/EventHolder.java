@@ -6,12 +6,12 @@ public class EventHolder implements Serializable {
 
 
     private String title;
-    private Integer startDate;
-    private Integer endDate;
-    private Integer startTime;
-    private Integer endTime;
+    private String startDate;
+    private String endDate;
+    private String startTime;
+    private String endTime;
 
-    public EventHolder(String title, Integer startDate, Integer endDate, Integer startTime, Integer endTime) {
+    public EventHolder(String title, String startDate, String endDate, String startTime, String endTime) {
         this.title = title;
         this.startDate = startDate;
         this.endDate = endDate;
@@ -27,35 +27,35 @@ public class EventHolder implements Serializable {
         this.title = title;
     }
 
-    public Integer getStartDate() {
+    public String getStartDate() {
         return startDate;
     }
 
-    public void setStartDate(Integer startDate) {
+    public void setStartDate(String startDate) {
         this.startDate = startDate;
     }
 
-    public Integer getEndDate() {
+    public String getEndDate() {
         return endDate;
     }
 
-    public void setEndDate(Integer endDate) {
+    public void setEndDate(String endDate) {
         this.endDate = endDate;
     }
 
-    public Integer getStartTime() {
+    public String getStartTime() {
         return startTime;
     }
 
-    public void setStartTime(Integer startTime) {
+    public void setStartTime(String startTime) {
         this.startTime = startTime;
     }
 
-    public Integer getEndTime() {
+    public String getEndTime() {
         return endTime;
     }
 
-    public void setEndTime(Integer endTime) {
+    public void setEndTime(String endTime) {
         this.endTime = endTime;
     }
 }
