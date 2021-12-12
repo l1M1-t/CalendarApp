@@ -17,7 +17,6 @@ import java.util.List;
 
 public class EventListActivity extends AppCompatActivity{
 
-    Button monthView;
     ListView listView;
     ArrayList list = new ArrayList();
     ArrayList<EventHolder> bufferList = new ArrayList<EventHolder>();
@@ -41,6 +40,8 @@ public class EventListActivity extends AppCompatActivity{
 
         listOfEvents = new ArrayAdapter(EventListActivity.this, android.R.layout.simple_list_item_1, list);
         listView.setAdapter(listOfEvents);
+
+        System.out.print("Start Time: " + bufferList.get(0).getStartTime());
 
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
