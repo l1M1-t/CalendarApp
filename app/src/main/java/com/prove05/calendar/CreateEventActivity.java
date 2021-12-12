@@ -43,17 +43,17 @@ public class CreateEventActivity extends AppCompatActivity {
                 Integer temp1 = startDate.getDayOfMonth();
                 Integer temp2 = startDate.getMonth() + 1;
                 Integer temp3 = startDate.getYear();
-                String finalStartDate = (temp1.toString() + temp2.toString() + temp3.toString());
+                String finalStartDate = (temp2.toString() + "/" + temp1.toString() + "/" + temp3.toString());
                 temp1 = endDate.getDayOfMonth();
                 temp2 = endDate.getMonth() + 1;
                 temp3 = endDate.getYear();
-                String finalEndDate = (temp1.toString() + temp2.toString() + temp3.toString());
+                String finalEndDate = (temp2.toString() + "/" + temp1.toString() + "/" + temp3.toString());
                 temp1 = startTime.getHour();
                 temp2 = startTime.getMinute();
-                String finalStartTime = (temp1.toString() + temp2.toString());
+                String finalStartTime = (temp1.toString() + ":" + temp2.toString());
                 temp1 = endTime.getHour();
                 temp2 = endTime.getMinute();
-                String finalEndTime = (temp1.toString() + temp2.toString());
+                String finalEndTime = (temp1.toString() + ":" + temp2.toString());
 
                 event = new EventHolder(title.getText().toString(), finalStartDate, finalEndDate, finalStartTime, finalEndTime);
 
