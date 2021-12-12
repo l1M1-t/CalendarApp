@@ -110,7 +110,7 @@ public class MainActivity extends AppCompatActivity {
                     Toast.makeText(MainActivity.this, "Created event: " + events.get(events.size() - 1).getTitle(), Toast.LENGTH_SHORT).show();
                 }
                 if (resultCode == RESULT_CANCELED) {
-                    Toast.makeText(MainActivity.this, "Extracting data failed!", Toast.LENGTH_SHORT).show();
+                    //Toast.makeText(MainActivity.this, "Extracting data failed!", Toast.LENGTH_SHORT).show();
                 }
             }
         } catch (Exception ex) {
