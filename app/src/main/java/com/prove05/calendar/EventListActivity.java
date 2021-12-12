@@ -26,7 +26,7 @@ public class EventListActivity extends AppCompatActivity{
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_event_list);
-
+        setTitle("List of Events");
         Intent intent = getIntent();
         bufferList = (ArrayList<EventHolder>)getIntent().getSerializableExtra("EVENTS");
 

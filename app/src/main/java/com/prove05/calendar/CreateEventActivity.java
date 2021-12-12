@@ -25,7 +25,7 @@ public class CreateEventActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_create_event);
-
+        setTitle("Create New Event");
         // receiving data from the previous activity
         Intent intent = getIntent();
 
