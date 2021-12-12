@@ -153,9 +153,11 @@ public class MainActivity extends AppCompatActivity {
         String outputText = new String();
         for(Iterator it = eventHolderList.iterator(); it.hasNext();){
             EventHolder currentEventHolder = (EventHolder) it.next();
-            outputText = currentEventHolder.getTitle() + "|" + currentEventHolder.getStartDate() + "|" + currentEventHolder.getEndDate() +  "|" + currentEventHolder.getStartTime() + "|" + currentEventHolder.getEndTime();
+            outputText += currentEventHolder.getTitle() + "|" + currentEventHolder.getStartDate() + "|" + currentEventHolder.getEndDate() +  "|" + currentEventHolder.getStartTime() + "|" + currentEventHolder.getEndTime() + "\n";
         }
+        System.out.println(outputText);
         return outputText;
+
 
     }
 
