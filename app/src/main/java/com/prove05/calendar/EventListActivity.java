@@ -33,7 +33,7 @@ public class EventListActivity extends AppCompatActivity{
         listView = (ListView)findViewById(R.id.list);
 
         //display events to the listView
-        Log.i("HM", bufferList.get(0).getTitle());
+
         for (int i = 0; i < bufferList.size(); i++) {
             list.add(bufferList.get(i).getTitle());
         }

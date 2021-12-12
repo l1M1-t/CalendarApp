@@ -44,21 +44,21 @@ public class StoreEvents implements  Runnable{
             int date = Integer.parseInt(items[1]);
             int time = Integer.parseInt(items[2]);
 
-            EventHolder newEventHolder = new EventHolder(title, date, time);
-            eventHolderList.add(newEventHolder);
+            //EventHolder newEventHolder = new EventHolder(title, date, time, );
+            //eventHolderList.add(newEventHolder);
 
         }
         return eventHolderList;
 
     }
     public static void listToFile(ArrayList<EventHolder> eventHolderList){
-
+ /*
         for(Iterator it = eventHolderList.iterator(); it.hasNext();){
             EventHolder currentEventHolder = (EventHolder) it.next();
             String outputText = currentEventHolder.getTitle() + "|" + currentEventHolder.getDate() + "|" + currentEventHolder.getTime();
         }
 
-
+*/
     }
 
 

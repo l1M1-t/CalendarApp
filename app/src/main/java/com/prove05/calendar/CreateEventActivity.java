@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.DatePicker;
 import android.widget.EditText;
 
 import java.util.ArrayList;
@@ -16,10 +17,11 @@ public class CreateEventActivity extends AppCompatActivity {
 
     Button clear;
     Button save;
+    DatePicker startDate;
     EditText title;
-    EditText startDate;
-    EditText endDate;
-    EditText alertDate;
+    //EditText startDate;
+    ///EditText endDate;
+    //EditText alertDate;
     EventHolder event;
     String year;
     String month;
@@ -34,29 +36,30 @@ public class CreateEventActivity extends AppCompatActivity {
         // receiving data from the previous activity
         Intent intent = getIntent();
         events = (ArrayList<EventHolder>)getIntent().getSerializableExtra("EVENTS");
-        year = intent.getStringExtra("YEAR");
-        month = intent.getStringExtra("MONTH");
-        dayOfMonth = intent.getStringExtra("DAYOFMONTH");
+        //year = intent.getStringExtra("YEAR");
+        //month = intent.getStringExtra("MONTH");
+        //dayOfMonth = intent.getStringExtra("DAYOFMONTH");
 
 
         clear = (Button)findViewById(R.id.buttonClear);
         save = (Button)findViewById(R.id.buttonSave);
         title = (EditText)findViewById(R.id.EventTitle);
-        startDate = (EditText)findViewById(R.id.startDateText);
-        endDate = (EditText)findViewById(R.id.endDateText);
-        alertDate = (EditText)findViewById(R.id.alertDateText);
+        startDate = (DatePicker)findViewById(R.id.datePicker1);
+        //startDate = (EditText)findViewById(R.id.startDateText);
+        //endDate = (EditText)findViewById(R.id.endDateText);
+        //alertDate = (EditText)findViewById(R.id.alertDateText);
 
         // setting start date as the date that was selected by the user
-        startDate.setText(month + "/" + dayOfMonth + "/" + year);
-        endDate.setText(month + "/" + dayOfMonth + "/" + year);
+        //startDate.setText(month + "/" + dayOfMonth + "/" + year);
+        //endDate.setText(month + "/" + dayOfMonth + "/" + year);
 
         // clear all of user's input
         clear.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
-                System.out.println("Who?");
-                clear();
+
+                //clear();
             }
         });
 
@@ -64,22 +67,23 @@ public class CreateEventActivity extends AppCompatActivity {
         save.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //date and time holders after casting
-
-
-                int date = 2021;
-                int time = 1900;
 
 
                 // create String holders after slashes are extracted
-                String finalStartDate;
-                String finalEndDate;
+
+                Integer temp1 = startDate.getDayOfMonth();
+                Integer temp2 = startDate.getMonth();
+                Integer temp3 = startDate.getYear();
+                Integer finalStartDate = Integer.parseInt(temp1.toString()+ temp2.toString()+ temp3.toString());
+                Integer finalEndDate = 0;
+                Integer finalStartTime = 0;
+                Integer finalEndTime = 0;
 
                 // separate the dates from the slashes '/'
-                finalStartDate = extractSlash(startDate.getText().toString());
-                finalEndDate = extractSlash(endDate.getText().toString());
+                //finalStartDate = extractSlash(startDate.getText().toString());
+                //finalEndDate = extractSlash(endDate.getText().toString());
 
-                System.out.println("Who?");
+
                 System.out.println(title.getText().toString());
 
                 // cast the dates into string to construct a new EventHolder object
@@ -87,13 +91,14 @@ public class CreateEventActivity extends AppCompatActivity {
                 //time = Integer.parseInt(finalEndDate);
 
 
-                event = new EventHolder(title.getText().toString(), date, time);
+
+                event = new EventHolder(title.getText().toString(), finalStartDate, finalEndDate, finalStartTime, finalEndTime);
 
                 // event added into the arrayList of events
 
                 //saveNotification(title, startDate, endDate, alertDate);
-                System.out.println("Who?");
-                System.out.println("What?");
+
+
                 // list of events object is passed back to the main activity
                 Intent resultIntent = new Intent();
                 resultIntent.putExtra("EVENT", event);
@@ -103,7 +108,7 @@ public class CreateEventActivity extends AppCompatActivity {
             }
         });
     }
-
+    /*
     public void clear() {
         //for unknown reason, the system crashes when the input for title is erased.
         //title.getText().clear();
@@ -112,7 +117,7 @@ public class CreateEventActivity extends AppCompatActivity {
         endDate.getText().clear();
         alertDate.getText().clear();
     }
-
+*/
     public void saveEvent() {
 
     }
