@@ -47,8 +47,8 @@ public class EventListActivity extends AppCompatActivity{
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 Toast.makeText(EventListActivity.this,
-                        bufferList.get(position).getStartDate() + " " + bufferList.get(position).getStartTime(),
-                        Toast.LENGTH_SHORT).show();
+                        bufferList.get(position).getStartDate() + "~" + bufferList.get(position).getEndDate() + "\n"
+                                + bufferList.get(position).getStartTime() + "~" + bufferList.get(position).getEndTime(), Toast.LENGTH_SHORT).show();
             }
         });
     }
