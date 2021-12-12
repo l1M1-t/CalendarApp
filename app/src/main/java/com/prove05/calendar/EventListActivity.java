@@ -34,6 +34,7 @@ public class EventListActivity extends AppCompatActivity{
         listView = (ListView)findViewById(R.id.list);
 
         //display events to the listView
+        //check if the list is empty
         if (bufferList.size() == 0) {
             listOfEvents = new ArrayAdapter(EventListActivity.this, android.R.layout.simple_list_item_1, bufferList);
         }
