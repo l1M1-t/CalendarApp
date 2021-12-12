@@ -4,9 +4,11 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ListView;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -39,5 +41,14 @@ public class EventListActivity extends AppCompatActivity{
 
         listOfEvents = new ArrayAdapter(EventListActivity.this, android.R.layout.simple_list_item_1, list);
         listView.setAdapter(listOfEvents);
+
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                Toast.makeText(EventListActivity.this,
+                        bufferList.get(position).getStartDate() + " " + bufferList.get(position).getStartTime(),
+                        Toast.LENGTH_SHORT).show();
+            }
+        });
     }
 }
