@@ -26,6 +26,7 @@ public class EventListActivity extends AppCompatActivity{
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_event_list);
+        setTitle("List of Events");
 
         Intent intent = getIntent();
         bufferList = (ArrayList<EventHolder>)getIntent().getSerializableExtra("EVENTS");
@@ -33,23 +34,27 @@ public class EventListActivity extends AppCompatActivity{
         listView = (ListView)findViewById(R.id.list);
 
         //display events to the listView
-
-        for (int i = 0; i < bufferList.size(); i++) {
-            list.add(bufferList.get(i).getTitle());
+        if (bufferList.size() == 0) {
+            listOfEvents = new ArrayAdapter(EventListActivity.this, android.R.layout.simple_list_item_1, bufferList);
         }
-
-        listOfEvents = new ArrayAdapter(EventListActivity.this, android.R.layout.simple_list_item_1, list);
-        listView.setAdapter(listOfEvents);
-
-        System.out.print("Start Time: " + bufferList.get(0).getStartTime());
-
-        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                Toast.makeText(EventListActivity.this,
-                        "Date: " + bufferList.get(position).getStartDate() + " ~ " + bufferList.get(position).getEndDate() + "\n"
-                                + "Time: " + bufferList.get(position).getStartTime() + " ~ " + bufferList.get(position).getEndTime(), Toast.LENGTH_SHORT).show();
+        else {
+            for (int i = 0; i < bufferList.size(); i++) {
+                list.add(bufferList.get(i).getTitle());
             }
-        });
+
+            listOfEvents = new ArrayAdapter(EventListActivity.this, android.R.layout.simple_list_item_1, list);
+            listView.setAdapter(listOfEvents);
+
+            System.out.print("Start Time: " + bufferList.get(0).getStartTime());
+
+            listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+                @Override
+                public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                    Toast.makeText(EventListActivity.this,
+                            "Date: " + bufferList.get(position).getStartDate() + " ~ " + bufferList.get(position).getEndDate() + "\n"
+                                    + "Time: " + bufferList.get(position).getStartTime() + " ~ " + bufferList.get(position).getEndTime(), Toast.LENGTH_SHORT).show();
+                }
+            });
+        }
     }
 }
