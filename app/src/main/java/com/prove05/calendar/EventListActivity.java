@@ -29,7 +29,6 @@ public class EventListActivity extends AppCompatActivity{
         Intent intent = getIntent();
         bufferList = (ArrayList<EventHolder>)getIntent().getSerializableExtra("EVENTS");
 
-        monthView = (Button)findViewById(R.id.monthViewButton);
         listView = (ListView)findViewById(R.id.list);
 
         //display events to the listView
@@ -40,20 +39,5 @@ public class EventListActivity extends AppCompatActivity{
 
         listOfEvents = new ArrayAdapter(EventListActivity.this, android.R.layout.simple_list_item_1, list);
         listView.setAdapter(listOfEvents);
-
-        monthView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                monthView(v);
-            }
-        });
-    }
-
-    public void monthView(View view) {
-        Intent intent = new Intent(this, MainActivity.class);
-
-        intent.putExtra("EVENTS", list);
-
-        startActivity(intent);
     }
 }

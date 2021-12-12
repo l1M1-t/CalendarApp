@@ -1,31 +1,42 @@
 package com.prove05.calendar;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.app.Activity;
+import android.app.TimePickerDialog;
 import android.content.Intent;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
-import android.util.Log;
+import android.text.format.DateFormat;
 import android.view.View;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
+import android.widget.TextView;
+import android.widget.TimePicker;
 
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.DialogFragment;
+
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Date;
 
 public class CreateEventActivity extends AppCompatActivity {
 
-    Button clear;
     Button save;
     DatePicker startDate;
+    DatePicker endDate;
+    TextView startTime;
+    TextView endTime;
     EditText title;
-    //EditText startDate;
-    ///EditText endDate;
-    //EditText alertDate;
     EventHolder event;
-    String year;
-    String month;
-    String dayOfMonth;
+    int t1Hour;
+    int t1Minute;
+    int t2Hour;
+    int t2Minute;
+    Button setTime1;
     ArrayList<EventHolder> events = new ArrayList<EventHolder>();
 
     @Override
@@ -36,30 +47,76 @@ public class CreateEventActivity extends AppCompatActivity {
         // receiving data from the previous activity
         Intent intent = getIntent();
         events = (ArrayList<EventHolder>)getIntent().getSerializableExtra("EVENTS");
-        //year = intent.getStringExtra("YEAR");
-        //month = intent.getStringExtra("MONTH");
-        //dayOfMonth = intent.getStringExtra("DAYOFMONTH");
 
-
-        clear = (Button)findViewById(R.id.buttonClear);
         save = (Button)findViewById(R.id.buttonSave);
         title = (EditText)findViewById(R.id.EventTitle);
         startDate = (DatePicker)findViewById(R.id.datePicker1);
-        //startDate = (EditText)findViewById(R.id.startDateText);
-        //endDate = (EditText)findViewById(R.id.endDateText);
-        //alertDate = (EditText)findViewById(R.id.alertDateText);
+        endDate = (DatePicker)findViewById(R.id.datePicker2);
+        startTime = (TextView)findViewById(R.id.eventStartTime);
+        endTime = (TextView)findViewById(R.id.eventEndTime);
 
-        // setting start date as the date that was selected by the user
-        //startDate.setText(month + "/" + dayOfMonth + "/" + year);
-        //endDate.setText(month + "/" + dayOfMonth + "/" + year);
-
-        // clear all of user's input
-        clear.setOnClickListener(new View.OnClickListener() {
+        startTime.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                TimePickerDialog timepickerDialog = new TimePickerDialog(
+                        CreateEventActivity.this,
+                        new TimePickerDialog.OnTimeSetListener() {
+                            @Override
+                            public void onTimeSet(TimePicker view, int hourOfDay, int minute) {
+                                //Initializing hour and minute
+                                t1Hour = hourOfDay;
+                                t1Minute = minute;
+                                // Initializing calendar
+                                Calendar calendar = Calendar.getInstance();
+                                // set hour and minute
+                                calendar.set(0, 0, 0, t1Hour, t1Minute);
+                                // set selected time on textview
 
+                                startTime.setText(DateFormat.format("hh:mm aa", calendar));
+                            }
+                        }, 12, 0, false
+                );
+                //Display previous selected time
+                timepickerDialog.updateTime(t1Hour, t1Minute);
+                //show dialog
+                timepickerDialog.show();
+            }
+        });
 
-                //clear();
+        endTime.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                TimePickerDialog timepickerDialog = new TimePickerDialog(
+                        CreateEventActivity.this,
+                        new TimePickerDialog.OnTimeSetListener() {
+                            @Override
+                            public void onTimeSet(TimePicker view, int hourOfDay, int minute) {
+                                //Initializing hour and minute
+                                t2Hour = hourOfDay;
+                                t2Minute = minute;
+                                //Store hour and minute in String
+                                String time = t2Hour + ":" + t2Minute;
+
+                                SimpleDateFormat f24Hours = new SimpleDateFormat(
+                                        "HH:mm"
+                                );
+                                try {
+                                    Date date = f24Hours.parse(time);
+                                    SimpleDateFormat f12Hours = new SimpleDateFormat(
+                                            "hh:mm aa"
+                                    );
+
+                                    endTime.setText(f12Hours.format(date));
+                                } catch (ParseException e) {
+                                    e.printStackTrace();
+                                }
+                            }
+                        }, 12, 0, false
+                );
+                //Display previous selected time
+                timepickerDialog.updateTime(t2Hour, t2Minute);
+                //show dialog
+                timepickerDialog.show();
             }
         });
 
@@ -121,15 +178,4 @@ public class CreateEventActivity extends AppCompatActivity {
     public void saveEvent() {
 
     }
-
-    public String saveNotification(EditText title, EditText startDate, EditText endDate, EditText alertDate) {
-        return null;
-    }
-
-    public String extractSlash(String date) {
-        String buffer = date;
-        String finalDate = null;
-
-        return finalDate;
-    };
 }

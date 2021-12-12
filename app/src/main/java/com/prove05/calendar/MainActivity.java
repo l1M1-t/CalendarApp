@@ -46,7 +46,7 @@ public class MainActivity extends AppCompatActivity {
             public void onSelectedDayChange(
                     @NonNull CalendarView view, int year, int month, int dayofMonth) {
                 y = String.valueOf(year);
-                m = String.valueOf(month);
+                m = String.valueOf(month + 1);
                 dom = String.valueOf(dayofMonth);
             }
         });
@@ -84,10 +84,7 @@ public class MainActivity extends AppCompatActivity {
         intent.putExtra("EVENTS", events);
 
         super.startActivityForResult(intent, 1);
-
     }
-
-
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
@@ -96,7 +93,6 @@ public class MainActivity extends AppCompatActivity {
             if (requestCode == 1) {
 
                 System.out.println(resultCode);
-
 
                 if (resultCode == RESULT_OK) {
                     EventHolder ev = (EventHolder)data.getSerializableExtra("EVENT");
